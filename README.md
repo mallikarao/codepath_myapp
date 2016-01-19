@@ -19,7 +19,11 @@ The documentation guide was followed for to learn and do the above.
 
 Here's a walkthrough of implemented user stories:
 
+1. Add items to list:
 <img src='https://github.com/mallikarao/codepath_myapp/blob/master/add_items.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+2. Remove items on long click:
+<img src='https://github.com/mallikarao/codepath_myapp/blob/master/remove_items.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
