@@ -41,16 +41,6 @@ public class MainActivity extends AppCompatActivity {
         lvItems = (ListView) findViewById(R.id.lvItems);
         lvItems.setAdapter(aTodoAdapter);
         etEditText = (EditText) findViewById(R.id.etEditText);
-        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-
-                todoItems.get(position);
-                aTodoAdapter.getItemViewType(position);
-
-                // The rest of the code goes here
-            }
-        });
         lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -171,6 +161,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onAddItem(View view) {
+        aTodoAdapter.add(etEditText.getText().toString());
+        etEditText.setText("");
+        writeItems();
+    }
+
+    public void onSaveItem(View view){
         aTodoAdapter.add(etEditText.getText().toString());
         etEditText.setText("");
         writeItems();
