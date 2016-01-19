@@ -1,10 +1,10 @@
-# Pre-work - myapp
+# Pre-work - my application
 
-'myapp' is an android app that allows building a todo list and basic todo items management functionality including adding new items, editing and deleting an existing item.
+'my application' is an android app that allows building a todo list and basic todo items management functionality including adding new items, editing and deleting an existing item.
 
 Submitted by: mallikarao
 
-Time spent: 7hrs on jan 15th, 4 hrs on jan 19= hours spent in total
+Time spent: 9hrs on jan 15th, 5 hrs on jan 19= 14 hours spent in total
 
 ## User Stories
 
@@ -25,11 +25,16 @@ Here's a walkthrough of implemented user stories:
 2. Remove items on long click:
 <img src='https://github.com/mallikarao/codepath_myapp/blob/master/remove_items.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+3. persist data after stopping-starting/restarting app using files:
+<img src='https://github.com/mallikarao/codepath_myapp/blob/master/persistent_data.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+1. New to the whole android development suite, so, everything from installing the tools to implementing the basics was a learning experience, what might have been a cake walk for most, was a fun challenge for me. Fun!
+2. getting over the installation and running of the app on emulator and testing the basic functionalities, debugging read and write items modules.
+Thanks to the codepath people who did such an awesome job on video walk through and slides to help.
 
 ## License
 
