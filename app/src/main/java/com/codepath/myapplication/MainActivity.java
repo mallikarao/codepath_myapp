@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -42,6 +41,16 @@ public class MainActivity extends AppCompatActivity {
         lvItems = (ListView) findViewById(R.id.lvItems);
         lvItems.setAdapter(aTodoAdapter);
         etEditText = (EditText) findViewById(R.id.etEditText);
+        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                todoItems.get(position);
+                aTodoAdapter.getItemViewType(position);
+
+                // The rest of the code goes here
+            }
+        });
         lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -52,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button test_button = (Button) findViewById(R.id.btnAddItem);
+        //Button test_button = (Button) findViewById(R.id.btnAddItem);
         /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -72,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void populateArrayItems() {
         readItems();
+        /*todoItems = new ArrayList<String>();
+        todoItems.add("item 1");
+        todoItems.add("item 2");
+        todoItems.add("item 3");*/
         aTodoAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, todoItems);
 
     }
@@ -117,12 +130,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onAddItem(View view) {
-        aTodoAdapter.add(etEditText.getText().toString());
-        etEditText.setText("");
-        writeItems();
-    }
-
     @Override
     public void onStart() {
         super.onStart();
@@ -162,4 +169,11 @@ public class MainActivity extends AppCompatActivity {
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
     }
+
+    public void onAddItem(View view) {
+        aTodoAdapter.add(etEditText.getText().toString());
+        etEditText.setText("");
+        writeItems();
+    }
+
 }
