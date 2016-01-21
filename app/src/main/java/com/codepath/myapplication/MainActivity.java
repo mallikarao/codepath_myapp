@@ -1,5 +1,7 @@
 package com.codepath.myapplication;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -20,6 +23,8 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import static android.widget.AdapterView.OnItemLongClickListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         lvItems = (ListView) findViewById(R.id.lvItems);
         lvItems.setAdapter(aTodoAdapter);
         etEditText = (EditText) findViewById(R.id.etEditText);
-        lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        lvItems.setOnItemLongClickListener(new OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 todoItems.remove(position);
@@ -50,7 +55,17 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Class<? extends Activity> activityToStart = null;
+                String product = ((TextView) view).getText().toString();
+                Intent i = new Intent(getApplicationContext(), EditItemActivity.class);
 
+                startActivity(i);
+
+            }
+        });
         //Button test_button = (Button) findViewById(R.id.btnAddItem);
         /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -64,9 +79,9 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });*/
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+                // ATTENTION: This was auto-generated to implement the App Indexing API.
+                // See https://g.co/AppIndexing/AndroidStudio for more information.
+                client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     public void populateArrayItems() {
