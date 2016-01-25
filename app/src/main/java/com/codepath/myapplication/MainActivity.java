@@ -12,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -59,10 +58,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Class<? extends Activity> activityToStart = null;
-                String product = ((TextView) view).getText().toString();
                 Intent i = new Intent(getApplicationContext(), EditItemActivity.class);
-
                 startActivity(i);
+                //aTodoAdapter.notifyDataSetChanged();
+                //writeItems();
+
 
             }
         });
